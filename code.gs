@@ -26,6 +26,15 @@ var myGoogleEmail = 'insertyourgoogleemailhere@gmail.com';
 var myEmail = 'insertyouremailhere@someemail.com';
 
 /*
+ * EMAIL SENDER NAME
+ *
+ * This is the name you will see as the sender of the email.
+ * If you leave it blank it will default to your Google account name.
+ * Note: this may not work when using a Gmail address sending emails to itself.
+ */
+var emailSenderName = 'Anniversary Notifications';
+
+/*
  * ID OF THE BIRTHDAY CALENDAR
  *
  * Open up https://calendar.google.com, in the menu on the left click on the arrow next to the birthday calendar
@@ -143,115 +152,28 @@ var i18n = {
   // An entry for 'en' marks it as a valid lang config-option, but leave it empty
   // to just return unaltered phrases.
   'en': {},
-  'el': {
-    'UNKNOWN': 'ΑΓΝΩΣΤΟ',
-    'Age': 'Ηλικία',
-    'Birthday': 'Γενέθλια',
-    'Birthday today': 'Γενέθλια σήμερα',
-    'Birthday tomorrow': 'Γενέθλια αύριο',
-    'Birthday in {0} days': 'Γενέθλια σε {0} ημέρες',
-    'Hey! Don\'t forget these birthdays': 'Μην ξεχάσετε αυτά τα γενέθλια',
-    'Google Birthday Notifier': 'Ενημερώσεις Γενεθλίων του Ημερολογίου Google',
-    'version': 'εκδοχή',
-    'by': 'από τον', // τον=masculine,την=feminine (using the masculine, in one place, for now but may need more context in future)
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'στείλτε email τώρα',
-    'Mobile phone': 'Κινητό',
-    'Work phone': 'Τηλέφωνο εργασίας',
-    'Home phone': 'Τηλέφωνο οικίας',
-    'Main phone': 'Κύριο τηλέφωνο',
-  },
-  'es': {
-    'UNKNOWN': 'DESCONOCIDO',
-    'Age': 'Edad',
-    'Birthday': 'Cumpleaños',
-    'Birthday today': 'Cumpleaños hoy',
-    'Birthday tomorrow': 'Cumpleaños mañana',
-    'Birthday in {0} days': 'Cumpleaños en {0} días',
-    'Hey! Don\'t forget these birthdays': 'Hey! No olvides estos cumpleaños',
-    'version': 'versión',
-    'by': 'por',
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'enviar mail ahora',
-    'Mobile phone': 'Celular',
-    'Work phone': 'Teléfono del trabajo',
-    'Home phone': 'Teléfono del hogar',
-    'Main phone': 'Teléfono principal',
-  },
-  'it': {
-    'UNKNOWN': 'SCONOSCIUTO',
-    'Age': 'Età',
-    'Birthday': 'Compleanno',
-    'Birthday today': 'Compleanno oggi',
-    'Birthday tomorrow': 'Compleanno domani',
-    'Birthday in {0} days': 'Compleanno fra {0} giorni',
-    'Hey! Don\'t forget these birthdays': 'Hey! Non dimenticare questi compleanni',
-    'version': 'versione',
-    'by': 'by',
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'invia email ora',
-    'Mobile phone': 'Cellulare',
-    'Work phone': 'Telefono di lavoro',
-    'Home phone': 'Telefono di casa',
-    'Main phone': 'Telefono principale',
-  },
-  'id': {
-    'UNKNOWN': 'Tidak diketahui',
-    'Age': 'Usia',
-    'Birthday': 'Ulang tahun',
-    'Birthday today': 'Ulang tahun hari ini',
-    'Birthday tomorrow': 'Ulang tahun besok',
-    'Birthday in {0} days': 'Ulang tahun dalam {0} hari',
-    'Hey! Don\'t forget these birthdays': 'Hai! Jangan lupa hari ulang tahun berikut',
-    'version': 'versi',
-    'by': 'oleh',
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'kirim email sekarang',
-    'Mobile phone': 'Telp. selular',
-    'Work phone': 'Telp. kantor',
-    'Home phone': 'Telp. rumah',
-    'Main phone': 'Telp. utama',
-  },
-  'de': {
-    'UNKNOWN': 'Unbekannt',
-    'Age': 'Alter',
-    'Birthday': 'Geburtstag',
-    'Birthday today': 'Heute Geburtstag',
-    'Birthday tomorrow': 'Morgen Geburtstag',
-    'Birthday in {0} days': 'Geburtstag in {0} Tagen',
-    'Hey! Don\'t forget these birthdays': 'Hey! Vergiss diese Geburtstage nicht',
-    'version': 'Version',
-    'by': 'von',
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'Jetzt eine E-Mail schicken',
-    'Mobile phone': 'Mobiltelefon',
-    'Work phone': 'Geschäftlich',
-    'Home phone': 'Privat',
-    'Main phone': 'Hauptnummer',
-  },
-  'pl': {
-    'UNKNOWN': 'NIEZNANY',
-    'Age': 'Wiek',
-    'Birthday': 'Urodziny',
-    'Birthday today': 'Urodziny dzisiaj',
-    'Birthday tomorrow': 'Urodziny jutro',
-    'Birthday in {0} days': 'Urodziny za {0} dni',
-    'Hey! Don\'t forget these birthdays': 'Hej! Nie zapomnij o tych urodzinach',
-    'version': 'wersja',
-    'by': 'od',
-    'dd-MM-yyyy': 'dd-MM-yyyy',
-    'send email now': 'Wyślij e-mail teraz',
-    'Mobile phone': 'Telefon komórkowy',
-    'Work phone': 'Telefon praca',
-    'Home phone': 'Telefon domowy',
-    'Main phone': 'Telefon główny',
-  },    
-  /* To add a language:
-  '[lang-code]': {
-    '[first phrase]': '[translation here]',
-    '[second phrase]': '[translation here]',
-    ...
-  }
+  /*
+  To add a language copy this text after the previous line and compile the translations.
+  COPY FROM THE FOLLOWING LINE
+  'xx': {
+  'UNKNOWN': '',
+    'Years of service': '',
+    'Gift choice': '',
+    'Anniversary': '',
+    'Anniversary today': '',
+    'Anniversary tomorrow': '',
+    'Anniversary in {0} days': '',
+    'Hey! Don\'t forget these anniversaries': '',
+    'version': '',
+    'by': '',
+    'dd-MM-yyyy': '',
+    'send email now': '',
+    'Mobile phone': '',
+    'Work phone': '',
+    'Home phone': '',
+    'Main phone': '',
+    },
+  COPY UNTIL THE PREVIOUS LINE
   */
 };
 
@@ -295,7 +217,7 @@ function checkBirthdays (testDate) {
   var anticipate, subjectPrefix, subjectBuilder,
     bodyPrefix, bodySuffix1, bodySuffix2, bodyBuilder, htmlBodyBuilder, now, subject, body, htmlBody;
 
-  doLog('Starting run of Google Birthday Notifier version ' + version + '.');
+  doLog('Starting run of Google Anniversary Notifier version ' + version + '.');
   // The script needs this value in milliseconds, but the user entered it in days.
   anticipate = anticipateDays.map(function (n) { return 1000 * 60 * 60 * 24 * n; });
   // Verify that the birthday calendar exists.
@@ -304,10 +226,10 @@ function checkBirthdays (testDate) {
   }
 
   // Start building the email notification text.
-  subjectPrefix = _('Birthday') + ': ';
+  subjectPrefix = _('Anniversary') + ': ';
   subjectBuilder = [];
-  bodyPrefix = _('Hey! Don\'t forget these birthdays') + ':';
-  bodySuffix1 = _('Google Birthday Notifier') + ' (' + _('version') + ' ' + version + ')';
+  bodyPrefix = _('Hey! Don\'t forget these anniversaries') + ':';
+  bodySuffix1 = _('Google Anniversary Notifier') + ' (' + _('version') + ' ' + version + ')';
   bodySuffix2 = _('by ') + 'Giorgio Bonvicini';
   // The email is built both with plain text and HTML text.
   bodyBuilder = [];
@@ -324,7 +246,7 @@ function checkBirthdays (testDate) {
    */
   anticipate.forEach(
     function (timeInterval) {
-      var optionalArgs, birthdays, formattedDate, whenIsIt;
+      var optionalArgs, events, anniversaries, formattedDate, whenIsIt;
 
       // Set the search filter to include only events happening 'timeInterval' milliseconds after now.
       optionalArgs = {
@@ -335,13 +257,14 @@ function checkBirthdays (testDate) {
         // Treat recurring (like birthdays) events as single events.
         singleEvents: true
       };
-      doLog('Checking birthdays from ' + optionalArgs.timeMin + ' to ' + optionalArgs.timeMax);
+      doLog('Checking anniversaries from ' + optionalArgs.timeMin + ' to ' + optionalArgs.timeMax);
 
       // Get all the matching events.
-      birthdays = Calendar.Events.list(calendarId, optionalArgs).items;
-      doLog('Found ' + birthdays.length + ' birthdays in this time range.');
-      // If no event is found for this particular timeInterval skip it.
-      if (birthdays.length < 1) {
+      events = Calendar.Events.list(calendarId, optionalArgs).items;
+      anniversaries = events.filter(function (x) { return x.gadget.preferences['goo.contactsEventType'] === 'ANNIVERSARY'; });
+      doLog('Found ' + anniversaries.length + ' anniversaries in this time range.');
+      // If no ANNIVERSARY event is found for this particular timeInterval skip it.
+      if (anniversaries.length < 1) {
         return;
       }
 
@@ -351,19 +274,19 @@ function checkBirthdays (testDate) {
       htmlBodyBuilder.push('<dt style="margin-left:0.8em;font-style:italic">');
       switch (timeInterval / (24 * 60 * 60 * 1000)) {
         case 0:
-          whenIsIt = _('Birthday today') + ' (' + formattedDate + ')';
+          whenIsIt = _('Anniversary today') + ' (' + formattedDate + ')';
           break;
         case 1:
-          whenIsIt = _('Birthday tomorrow') + ' (' + formattedDate + ')';
+          whenIsIt = _('Anniversary tomorrow') + ' (' + formattedDate + ')';
           break;
         default:
-          whenIsIt = _('Birthday in {0} days').format(timeInterval / (24 * 60 * 60 * 1000)) + ' (' + formattedDate + ')';
+          whenIsIt = _('Anniversary in {0} days').format(timeInterval / (24 * 60 * 60 * 1000)) + ' (' + formattedDate + ')';
       }
       bodyBuilder.push(whenIsIt, ':\n');
       htmlBodyBuilder.push(whenIsIt, '</dt><dd style="margin-left:0.4em;padding-left:0"><ul style="list-style:none;margin-left:0;padding-left:0;">');
 
-      // Add each of the birthdays for this timeInterval.
-      birthdays.forEach(
+      // Add each of the anniversaries for this timeInterval.
+      anniversaries.forEach(
         function (event, i) {
           var contact;
 
@@ -399,7 +322,8 @@ function checkBirthdays (testDate) {
       subject: subject,
       body: body,
       htmlBody: htmlBody,
-      inlineImages: inlineImages
+      inlineImages: inlineImages,
+      name: emailSenderName
     });
     doLog('Email sent.');
   }
@@ -408,7 +332,8 @@ function checkBirthdays (testDate) {
     MailApp.sendEmail({
       to: myEmail,
       subject: 'Logs for birthday-notification run',
-      body: Logger.getLog()
+      body: Logger.getLog(),
+      name: emailSenderName
     });
   }
 }
@@ -418,17 +343,19 @@ function checkBirthdays (testDate) {
  * recovered directly from Google Contact through the contactId field if present.
  */
 var Contact = function (event) {
-  var eventData, googleContact, currentYear, birthdayYear, phoneFields;
+  var eventData, googleContact, currentYear, anniversaryYear, phoneFields, giftChoice;
 
   // Extract basic data from the event description.
   eventData = event.gadget.preferences;
+
   this.id = (typeof eventData['goo.contactsContactId'] === 'undefined') ? '' : eventData['goo.contactsContactId'];
   this.fullName = (typeof eventData['goo.contactsFullName'] === 'undefined') ? '' : eventData['goo.contactsFullName'];
   this.email = (typeof eventData['goo.contactsEmail'] === 'undefined') ? '' : eventData['goo.contactsEmail'];
   this.photo = (typeof eventData['goo.contactsPhotoUrl'] === 'undefined') ? '' : eventData['goo.contactsPhotoUrl'];
-  this.age = '';
+  this.yearsOfService = '';
   this.phoneFields = [];
   this.nickname = '';
+  this.giftChoice = '';
 
   if (this.email !== '') {
     doLog('Has email.');
@@ -446,12 +373,12 @@ var Contact = function (event) {
 
   // If a valid Google Contact exists extract some additional data.
   if (googleContact) {
-    // Extract contact's age if the contact has the birthday year.
-    if (googleContact.getDates(ContactsApp.Field.BIRTHDAY)[0]) {
+    // Extract contact's year of service if the contact has the anniversary year.
+    if (googleContact.getDates(ContactsApp.Field.ANNIVERSARY)[0]) {
       doLog('Has birthday year.');
       currentYear = Utilities.formatDate(new Date(event.start.date.replace(/-/g, '/')), calendarTimeZone, 'yyyy');
-      birthdayYear = googleContact.getDates(ContactsApp.Field.BIRTHDAY)[0].getYear();
-      this.age = birthdayYear !== '' ? (currentYear - birthdayYear).toFixed(0) : '';
+      anniversaryYear = googleContact.getDates(ContactsApp.Field.ANNIVERSARY)[0].getYear();
+      this.yearsOfService = anniversaryYear !== '' ? (currentYear - anniversaryYear).toFixed(0) : '';
     }
     // Extract contact's phone numbers.
     phoneFields = googleContact.getPhones();
@@ -461,6 +388,11 @@ var Contact = function (event) {
     }
     // Extract contact's nickname.
     this.nickname = googleContact.getNickname();
+    // Extract contact's gift choice.
+    giftChoice = googleContact.getCustomFields('Gift Choice');
+    if (giftChoice.length > 0) {
+      this.giftChoice = giftChoice[0].getValue();
+    }
   }
 
   /*
@@ -477,9 +409,13 @@ var Contact = function (event) {
     if (this.nickname !== '') {
       line.push(' "', this.nickname, '"');
     }
-    // Age.
-    if (this.age !== '') {
-      line.push(' - ', _('Age'), ': ', this.age);
+    // Years of service.
+    if (this.yearsOfService !== '') {
+      line.push(' - ', _('Years of service'), ': ', this.yearsOfService);
+    }
+    // Gift choice.
+    if (this.giftChoice !== '') {
+      line.push(' - ', _('Gift choice'), ': ', this.giftChoice);
     }
     if (this.email !== '' || typeof this.phoneFields !== 'undefined') {
       line.push(' (');
@@ -528,9 +464,13 @@ var Contact = function (event) {
     if (this.nickname !== '') {
       line.push(' &quot;', this.nickname, '&quot;');
     }
-    // Age.
-    if (this.age !== '') {
-      line.push(' - ', _('Age'), ': ', this.age);
+    // Years of service.
+    if (this.yearsOfService !== '') {
+      line.push(' - ', _('Years of service'), ': ', this.yearsOfService);
+    }
+    // Gift choice.
+    if (this.giftChoice !== '') {
+      line.push(' - ', _('Gift choice'), ': ', this.giftChoice);
     }
     if (this.email !== '' || typeof this.phoneFields !== 'undefined') {
       line.push(' (');
@@ -602,6 +542,7 @@ function status () {
   if (!noLog && sendLog) {
     MailApp.sendEmail({
       to: myEmail,
+      name: emailSenderName,
       subject: 'Status for birthday-notification',
       body: Logger.getLog()
     });
